@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>courseSelectInterface</class>
+ <widget class="QWidget" name="courseSelectInterface">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>777</width>
+    <height>609</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="SegmentedWidget" name="SegmentedWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>200</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="ScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>739</width>
+            <height>515</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="CardWidget" name="myInfoCardWidget">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,8">
+                  <item>
+                   <widget class="StrongBodyLabel" name="label_9">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>已选课程</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="BodyLabel" name="label">
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,8">
+                  <item>
+                   <widget class="StrongBodyLabel" name="label_2">
+                    <property name="text">
+                     <string>我的总学分</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="BodyLabel" name="label_4">
+                    <property name="text">
+                     <string>26</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,8">
+                  <item>
+                   <widget class="StrongBodyLabel" name="label_5">
+                    <property name="text">
+                     <string>要求学分</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="BodyLabel" name="label_6">
+                    <property name="text">
+                     <string>35</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,8">
+                  <item>
+                   <widget class="StrongBodyLabel" name="label_7">
+                    <property name="text">
+                     <string>需选学分</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="BodyLabel" name="label_8">
+                    <property name="text">
+                     <string>9</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <property name="leftMargin">
+                 <number>50</number>
+                </property>
+                <property name="rightMargin">
+                 <number>30</number>
+                </property>
+                <item>
+                 <widget class="ProgressRing" name="progressBar">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>150</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>220</width>
+                    <height>220</height>
+                   </size>
+                  </property>
+                  <property name="maximum">
+                   <number>35</number>
+                  </property>
+                  <property name="value">
+                   <number>30</number>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="textVisible">
+                   <bool>true</bool>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="CardWidget" name="tableCardWidget">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QTableWidget" name="tableWidget">
+                <column>
+                 <property name="text">
+                  <string>序号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>课程名称</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>所属学院</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>主讲老师</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>课程数量</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>是否开课</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>是否结课</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>课程学分</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QFrame" name="courseSelectCard">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,9">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="LargeTitleLabel" name="label_3">
+              <property name="text">
+               <string>2024-2025课程选择</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,8">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <widget class="ListWidget" name="listWidget">
+                <item>
+                 <property name="text">
+                  <string>开放选课</string>
+                 </property>
+                 <property name="textAlignment">
+                  <set>AlignCenter</set>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>未开放选课</string>
+                 </property>
+                 <property name="textAlignment">
+                  <set>AlignCenter</set>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QStackedWidget" name="stackedWidget_2">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="openCoursePage">
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_10">
+                    <item>
+                     <widget class="LineEdit" name="collegeLineEdit">
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="DoubleSpinBox" name="doubleSpinBox">
+                      <property name="decimals">
+                       <number>1</number>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.500000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="ComboBox" name="openCourseBox">
+                      <property name="currentText">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="ToolButton" name="openCourseSearchButton">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>50</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="TableView" name="tableView"/>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="notOpenCoursePage">
+                 <layout class="QVBoxLayout" name="verticalLayout_12" stretch="0,0">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <item>
+                     <widget class="LineEdit" name="lineEdit">
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="DoubleSpinBox" name="doubleSpinBox_2">
+                      <property name="decimals">
+                       <number>1</number>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.500000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="ComboBox" name="comboBox"/>
+                    </item>
+                    <item>
+                     <widget class="ToolButton" name="notOpenSearchButton">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>50</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="TableView" name="tableView_2"/>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CardWidget</class>
+   <extends>QFrame</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ListWidget</class>
+   <extends>QListWidget</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>SegmentedWidget</class>
+   <extends>QWidget</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ToolButton</class>
+   <extends>QToolButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>BodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>StrongBodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LargeTitleLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ProgressRing</class>
+   <extends>QProgressBar</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>TableView</class>
+   <extends>QTableView</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>DoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

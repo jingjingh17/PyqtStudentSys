@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EnglishConerInterface</class>
+ <widget class="QWidget" name="EnglishConerInterface">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>868</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,9">
+   <item>
+    <widget class="CardWidget" name="titleCard">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="ListWidget" name="TitleList">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="midLineWidth">
+         <number>5</number>
+        </property>
+        <property name="movement">
+         <enum>QListView::Static</enum>
+        </property>
+        <property name="flow">
+         <enum>QListView::TopToBottom</enum>
+        </property>
+        <property name="layoutMode">
+         <enum>QListView::SinglePass</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Test1</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Test2</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Test3</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
+         <property name="textAlignment">
+          <set>AlignCenter</set>
+         </property>
+         <property name="background">
+          <brush brushstyle="NoBrush">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="CardWidget" name="contentCard">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTextBrowser" name="titleText">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei</family>
+         </font>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei','Arial'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;How Kamala Harris Knocked Donald Trump Off Course&lt;/span&gt;&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="authorText">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;By &lt;a href=&quot;https://time.com/author/brian-bennett/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Brian Bennett&lt;/span&gt;&lt;/a&gt;, &lt;a href=&quot;https://time.com/author/eric-cortellessa/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Eric Cortellessa&lt;/span&gt;&lt;/a&gt; and &lt;a href=&quot;https://time.com/author/philip-elliott/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Philip Elliott &lt;/span&gt;&lt;/a&gt;Updated: September 11, 2024 4:26 PM EDT | Originally published: September 11, 2024 7:00 AM EDT&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="contentText">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI Light</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI Light','Arial'; font-size:18pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;      The two candidates for President of the United States are as different as any duo in history. A billionaire businessman versus a career prosecutor and politician; a son of privilege against the daughter of a middle-class single mother; one reckless, one cautious; a former commander in chief against the first Black and South Asian woman to claim the nomination. They hail from different coasts, different generations, different tax brackets. But as stark as the choice facing American voters this November may be, the nation had never gotten a glimpse of Donald Trump and Kamala Harris side by side before they &lt;a href=&quot;https://time.com/7019832/harris-trump-debate-analysis/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;squared off &lt;/span&gt;&lt;/a&gt;in Philadelphia Sept. 10, in what may be &lt;a href=&quot;https://time.com/7019837/harris-trump-debate-highlights/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;their sole debate &lt;/span&gt;&lt;/a&gt;before Election Day.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://time.com/6972022/donald-trump-transcript-2024-election/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;      &lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;https://time.com/6972022/donald-trump-transcript-2024-election/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#000000;&quot;&gt;For the Republican&lt;/span&gt;&lt;/a&gt;, the U.S. is a hellscape of rising crime, unchecked immigration and economic misery. For the Democrat, the nation is beset by the division Trump has sowed, the &lt;a href=&quot;https://time.com/7019804/harris-trump-debate-abortion/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;abortion bans &lt;/span&gt;&lt;/a&gt;he ushered in, and the economic policies he passed that favor the rich at the expense of the rest. But beyond the canned salvos and campaign boilerplate, the high-stakes clash underscored how dramatically the presidential race has changed since mid-summer, when even top Democrats conceded Trump appeared to be sailing to victory in his rematch with President Joe Biden. As plain as it is that Trump wishes he were still running against Biden, it is equally apparent that Harris has rattled him.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CardWidget</class>
+   <extends>QFrame</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ListWidget</class>
+   <extends>QListWidget</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

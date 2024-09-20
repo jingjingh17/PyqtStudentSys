@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HomeInterface</class>
+ <widget class="QWidget" name="HomeInterface">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1037</width>
+    <height>837</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="5,1">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item alignment="Qt::AlignTop">
+        <widget class="CardWidget" name="WelCard">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>600</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,2">
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="welCardIconVLayout" stretch="0,1">
+            <item>
+             <widget class="ImageLabel" name="label_27">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="LargeTitleLabel" name="WelCardIconLabel">
+              <property name="text">
+               <string>NiYama</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="welCardItextVLayout">
+            <item>
+             <widget class="SubtitleLabel" name="WelCardTimeLabel">
+              <property name="text">
+               <string>2024 9/18 Friday 00:00:00</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="BodyLabel" name="WelCardTextLabel">
+              <property name="text">
+               <string>早上好，XXX，今天天气很好。</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight|Qt::AlignTop">
+        <widget class="CardWidget" name="WeaCard">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>380</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,2,5">
+          <item>
+           <layout class="QHBoxLayout" name="weaCardLocationHLayout">
+            <item>
+             <widget class="StrongBodyLabel" name="label">
+              <property name="text">
+               <string>镇江</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="weaCardWeaTodayHLayout">
+            <item>
+             <widget class="ImageLabel" name="WeaCardIcon0">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="BodyLabel" name="weaCardTodayTmpLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>34℃</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="BodyLabel" name="weaCardTodayTextLabel">
+              <property name="text">
+               <string>当前高温，请注意防暑</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="weaCardWeaForcastHLayout">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="BodyLabel" name="label_2">
+                <property name="text">
+                 <string>今天</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="ImageLabel" name="WeaCardIcon1">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_3">
+                <property name="text">
+                 <string>35</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_4">
+                <property name="text">
+                 <string>28</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="BodyLabel" name="label_5">
+                <property name="text">
+                 <string>周四</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="ImageLabel" name="WeaCardIcon2">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_6">
+                <property name="text">
+                 <string>35</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_7">
+                <property name="text">
+                 <string>28</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="BodyLabel" name="label_8">
+                <property name="text">
+                 <string>周四</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="ImageLabel" name="WeaCardIcon3">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_9">
+                <property name="text">
+                 <string>35</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_10">
+                <property name="text">
+                 <string>28</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="BodyLabel" name="label_11">
+                <property name="text">
+                 <string>周四</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="ImageLabel" name="WeaCardIcon4">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_12">
+                <property name="text">
+                 <string>35</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_13">
+                <property name="text">
+                 <string>28</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="BodyLabel" name="label_14">
+                <property name="text">
+                 <string>周四</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="ImageLabel" name="WeaCardIcon5">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_15">
+                <property name="text">
+                 <string>35</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="BodyLabel" name="label_16">
+                <property name="text">
+                 <string>28</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="CardWidget" name="TaskCard">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_11" stretch="1,0,1,0,8">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <widget class="ImageLabel" name="TaskCardIcon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="StrongBodyLabel" name="TaskCardTitleLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>待办</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="ToolButton" name="TaskCardAddtoolButton">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="ToolButton" name="TaskCardDeltoolButton">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="BodyLabel" name="TaskCardLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>添加待办任务</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="CardWidget" name="TaskCard3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <property name="spacing">
+                <number>2</number>
+               </property>
+               <property name="leftMargin">
+                <number>36</number>
+               </property>
+               <property name="topMargin">
+                <number>9</number>
+               </property>
+               <property name="rightMargin">
+                <number>36</number>
+               </property>
+               <item>
+                <widget class="CheckBox" name="checkBox">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="BodyLabel" name="label_17">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>在此输入任务内容</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="ToolButton" name="toolButton">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="CardWidget" name="TaskCard1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <property name="spacing">
+                <number>2</number>
+               </property>
+               <property name="leftMargin">
+                <number>36</number>
+               </property>
+               <property name="rightMargin">
+                <number>36</number>
+               </property>
+               <item>
+                <widget class="CheckBox" name="checkBox_2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="BodyLabel" name="label_22">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>点击右侧按钮保存任务</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="ToolButton" name="toolButton_2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="CardWidget" name="TaskCard2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <property name="spacing">
+                <number>2</number>
+               </property>
+               <property name="leftMargin">
+                <number>36</number>
+               </property>
+               <property name="rightMargin">
+                <number>36</number>
+               </property>
+               <item>
+                <widget class="CheckBox" name="checkBox_3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="BodyLabel" name="label_23">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">text-decoration:line-through</string>
+                 </property>
+                 <property name="text">
+                  <string>点击左侧复选框完成任务</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="ToolButton" name="toolButton_3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="CardWidget" name="NoticeCard">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_13" stretch="1,0,9">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="ImageLabel" name="NoticeCardIcon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>0</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="StrongBodyLabel" name="NoticeCardTitleLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>通知</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_14">
+            <item>
+             <widget class="CardWidget" name="NoticeCard1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0,0">
+               <item>
+                <widget class="BodyLabel" name="label_19">
+                 <property name="text">
+                  <string>关于2024国庆假期通知</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="HyperlinkLabel" name="label_18">
+                 <property name="text">
+                  <string>详情</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="CardWidget" name="NoticeCard2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <widget class="BodyLabel" name="label_20">
+                 <property name="text">
+                  <string>关于2024期末考试通知</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="HyperlinkLabel" name="label_21">
+                 <property name="text">
+                  <string>详情</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CardWidget</class>
+   <extends>QFrame</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ToolButton</class>
+   <extends>QToolButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>BodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>StrongBodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>SubtitleLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>LargeTitleLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>HyperlinkLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>ImageLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
