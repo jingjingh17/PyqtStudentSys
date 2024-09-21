@@ -5,7 +5,8 @@ from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLab
                             CheckBox,LineEdit,ToolButton,BodyLabel)
 
 from views.UI_LoginWindow import Ui_Form
-from utils.login import login
+
+from utils.login import Auth
 
 class LoginWindow(Ui_Form, QWidget):
     def __init__(self, parent=None):
@@ -20,7 +21,7 @@ class LoginWindow(Ui_Form, QWidget):
     def login(self):
         usename = self.lineEdit_3.text()
         password = self.lineEdit_4.text()
-        if login().check_user(usename,password):
+        if Auth().check_user_login(usename,password):
             print("登录成功","用户名",usename,"密码",password)
             self.close()
             self.showMainWindow()
@@ -28,9 +29,17 @@ class LoginWindow(Ui_Form, QWidget):
             print("登录失败")
 
     def register(self):
-        print("注册")
+        self.close()
+        self.showRegisterWindow()
 
     def showMainWindow(self):
         from main_window import Window
         mainWindow = Window()
         mainWindow.show()
+
+    def showRegisterWindow(self):
+        from views.Registerwindow import RegisterWindow
+        # 这里必须用self.registerWindow,如果使用registerWindow当作变量名，执行完后他会销毁导致窗口闪退(局部变量)
+        self.registerWindow = RegisterWindow()
+        self.registerWindow.show()
+        print("注册窗口打开")
