@@ -191,6 +191,9 @@
       </item>
       <item>
        <widget class="LineEdit" name="lineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>确认密码</string>
         </property>
@@ -288,12 +291,12 @@
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>PrimaryPushButton</class>
+   <class>HyperlinkButton</class>
    <extends>QPushButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>HyperlinkButton</class>
+   <class>PrimaryPushButton</class>
    <extends>QPushButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>

@@ -1,19 +1,24 @@
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QColor,QPixmap
+from PyQt6.QtGui import QColor,QPixmap,QIcon
 from PyQt6.QtWidgets import QWidget, QGraphicsDropShadowEffect,QHBoxLayout,QWidgetItem,QSizePolicy
-from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLabel,CardWidget,
-                            CheckBox,LineEdit,ToolButton,BodyLabel)
+from qfluentwidgets import (InfoBar)
 
 from views.UI_LoginWindow import Ui_Form
 
 from utils.login import Auth
+from utils.file_location import getSysIconPath
 
 class LoginWindow(Ui_Form, QWidget):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         self.setupUi(self)
-
+        
+        self.sysicon = getSysIconPath()
         self.setWindowTitle("登录")
+        self.setWindowIcon(QIcon(self.sysicon))
+        
+        self.label.setPixmap(QPixmap(self.sysicon).scaled(300,300, Qt.AspectRatioMode.KeepAspectRatio))
+        self.label_2.setPixmap(QPixmap(self.sysicon))
 
         self.pushButton.clicked.connect(self.login)
         self.pushButton_2.clicked.connect(self.register)
@@ -26,7 +31,13 @@ class LoginWindow(Ui_Form, QWidget):
             self.close()
             self.showMainWindow()
         else:
-            print("登录失败")
+            InfoBar.error(
+                title='用户名或密码错误',
+                content="请检查",
+                isClosable=True,
+                duration=2000,
+                parent=self
+            )
 
     def register(self):
         self.close()
@@ -42,4 +53,3 @@ class LoginWindow(Ui_Form, QWidget):
         # 这里必须用self.registerWindow,如果使用registerWindow当作变量名，执行完后他会销毁导致窗口闪退(局部变量)
         self.registerWindow = RegisterWindow()
         self.registerWindow.show()
-        print("注册窗口打开")

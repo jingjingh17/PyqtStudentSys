@@ -74,6 +74,7 @@ class Ui_Form(object):
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.verticalLayout_2.addWidget(self.lineEdit_4)
         self.lineEdit = LineEdit(parent=self.widget)
+        self.lineEdit.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_2.addWidget(self.lineEdit)
         spacerItem2 = QtWidgets.QSpacerItem(20, 5, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
