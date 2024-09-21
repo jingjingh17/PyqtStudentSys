@@ -1,4 +1,5 @@
 import sqlite3
+import time
 from utils.file_location import get_project_root
 
 class Auth():
@@ -11,24 +12,24 @@ class Auth():
     def check_user_login(self, username, password):
         cursor = self.conn.execute("SELECT * FROM Users WHERE username=? AND password=?", (username, password))
         result = cursor.fetchone()
-        cursor.close()
-        self.conn.close()
+        
         if result:
             return True
         else:
             return False
         
-    def check_user_register(self, username):
+    def check_user_register(self, username,password):
         cursor = self.conn.execute("SELECT * FROM Users WHERE username=?", (username,))
-        result = cursor.fetchone()
-        if result:
-            return False
+        userExit = cursor.fetchone()
+        if not userExit:
+            self.conn.execute("INSERT INTO Users (username, password,role,created_at) VALUES (?, ?,?,?)", (username, password,'student',time.strftime('%Y-%m-%d %H:%M:%S')))
+            self.conn.commit()
+            return True
         else:
-            cursor.close()
-            self.conn.close()
             return False
         
         
 if __name__ == '__main__':
     w = Auth()
     print(w.check_user_login('admin', '123'))
+    print(w.check_user_register('admin'))

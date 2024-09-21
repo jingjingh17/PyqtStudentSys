@@ -7,6 +7,7 @@ from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLab
                             CheckBox,LineEdit,ToolButton,BodyLabel)
 
 from views.UI_RegisterWindow import Ui_Form
+from utils.login import Auth
 
 class RegisterWindow(Ui_Form, QWidget):
     def __init__(self):
@@ -19,10 +20,27 @@ class RegisterWindow(Ui_Form, QWidget):
         self.pushButton.clicked.connect(self.register)
 
     def backLogin(self):
+        self.close()
+        from views.LoginWindow import LoginWindow
+        self.loginWindow = LoginWindow()
+        self.loginWindow.show()
         print("返回登录")
 
     def register(self):
-        print("注册提交")
+        self.username = self.lineEdit_3.text()
+        self.password = self.lineEdit_4.text()
+        self.password2 = self.lineEdit.text()
+        if self.username == "" or self.password == "":
+            print("用户名或密码为空")
+        elif self.password == self.password2:
+            auth = Auth()
+            if auth.check_user_register(self.username,self.password):
+                print("注册成功")
+            else:
+                print("用户名已存在")
+        else:
+            print("密码不一致")
+        
 
 
 if __name__ == "__main__":
