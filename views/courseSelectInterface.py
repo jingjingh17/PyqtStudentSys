@@ -1,23 +1,24 @@
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QColor,QPixmap,QStandardItemModel,QStandardItem
-from PyQt6.QtWidgets import (QWidget, QGraphicsDropShadowEffect,QHBoxLayout,QWidgetItem,QSizePolicy,
-                             QAbstractItemView,QTableWidgetItem)
-from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLabel,CardWidget,
-                            CheckBox,LineEdit,ToolButton,BodyLabel,ProgressRing)
+from PyQt6.QtWidgets import (QWidget,QAbstractItemView,QTableWidgetItem)
+from qfluentwidgets import (FluentIcon, setFont, PrimaryPushButton, MessageBox,InfoBarIcon,InfoBar)
 
 from views.UI_courseSelectInterface import Ui_courseSelectInterface
 from utils.myCourse import myCourse
-from utils.courseData import courseData
 from utils.course import course
 
 class courseSelectInterface(QWidget, Ui_courseSelectInterface):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self, userid,role):
+        super().__init__()
         self.setupUi(self)
-        
+        self.userid = userid
+        self.role = role  
         # 初始化分段导航
         self.SegmentedWidget.insertItem(0, "myCourse", "我的课程", self.on_home_click)
         self.SegmentedWidget.insertItem(1, "courseSelect", "选课", self.on_settings_click)
+
+        # 实例化course
+        self.course = course()
 
         # 初始化我的课程列表
         self.initMyCourseList()
@@ -96,7 +97,7 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
     def initOpenList(self):
         self.openModel = QStandardItemModel()
         self.openModel.setHorizontalHeaderLabels(["课程ID","课程编号", "课程名称", "学院", "课程数量", 
-                                                "已选数量","开放", "学分","教师","教师ID"])
+                                                "已选数量","开放", "学分","教师","教师ID","选课"])
         self.tableView.setModel(self.openModel)
         # 表格不可编辑
         self.tableView.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
@@ -119,12 +120,18 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         for i in range(len(openData)):
             row_data = openData[i]
             for j in range(len(row_data)):
-                if j == 5 and row_data[j] == 1:
+                if j == 6 and row_data[j] == 1:
                     self.openModel.setItem(i, j, QStandardItem("是"))
                 else:
                     self.openModel.setItem(i, j, QStandardItem(str(row_data[j])))
             else:
                 continue
+
+        # 增加选课按钮
+        for i in range(len(openData)):
+            submitButton = PrimaryPushButton("选课")
+            submitButton.clicked.connect(lambda _, row=i: self.submitButtonClicked(row))
+            self.tableView.setIndexWidget(self.openModel.index(i, 10), submitButton)
 
 
     def initNoOpenList(self):
@@ -142,14 +149,14 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         # 所有课程数据
         self.courseData = course().inquireCourse()
 
-        # 开放选课数据
+        # 未开放选课数据
         noOpenData = []
         for i in range(len(self.courseData)):
             row_data = self.courseData[i]
             if row_data[6] == 0:
                 noOpenData.append(row_data)
                 
-        # 渲染开放课程列表
+        # 渲染未开放课程列表
         for i in range(len(noOpenData)):
             row_data = noOpenData[i]
             for j in range(len(row_data)):
@@ -160,4 +167,54 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
             else:
                 continue
 
-                
+    # 选课提交弹出确认框
+    def submitButtonClicked(self,row):
+        courseId = int(self.openModel.item(row,0).text())
+        studentId = self.userid
+
+        confirMessage = "确认选择:" + "\n" + str(self.openModel.item(row,2).text()) + ","+str(self.openModel.item(row,3).text()) + ","+str(self.openModel.item(row,8).text())+ "吗？"
+        messageBox = MessageBox("确认",confirMessage,self)
+        messageBox.yesButton.setText("确定")
+        messageBox.cancelButton.setText("取消")
+
+        # 提交选课逻辑
+        if messageBox.exec():
+            """
+            提交至Enrollments表中
+            """
+            if self.role == "student":
+                if self.course.seleCourse(studentId,courseId) == True:
+                    InfoBar.success(
+                        title='成功',
+                        content="选课成功",
+                        isClosable=True,
+                        duration=2000,
+                        parent=self
+                    )
+                elif self.course.seleCourse(studentId,courseId) == "重复选课":
+                    InfoBar.error(
+                        title='选课失败',
+                        content="重复选课",
+                        isClosable=True,
+                        duration=2000,
+                        parent=self
+                    )
+                elif self.course.seleCourse(studentId,courseId) == "课满":
+                    InfoBar.error(
+                        title='选课失败',
+                        content="课程已满",
+                        isClosable=True,
+                        duration=2000,
+                        parent=self
+                    )
+            else:
+                InfoBar.error(
+                    title='角色错误',
+                    content=f"您当前的角色为{self.role}，无法选课！请切换为学生角色！",
+                    isClosable=True,
+                    duration=2000,
+                    parent=self
+                )
+        else:
+            print("取消选课请求")
+        print(courseId)

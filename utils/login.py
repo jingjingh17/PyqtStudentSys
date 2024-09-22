@@ -14,7 +14,10 @@ class Auth():
         result = cursor.fetchone()
         
         if result:
-            return True
+            '登录成功后,返回ID及角色信息'
+            userId = result[0]
+            role = result[3]
+            return True,userId,role
         else:
             return False
         

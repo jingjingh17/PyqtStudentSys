@@ -26,12 +26,12 @@ class Widget(QFrame):
 
 class Window(FluentWindow):
 
-    def __init__(self):
+    def __init__(self,userid,role):
         super().__init__()
 
         # create sub interface
         self.homeInterface = HomeInterface(self)
-        self.musicInterface = courseSelectInterface(self)
+        self.musicInterface = courseSelectInterface(userid,role)
         self.videoInterface = Widget('Video Interface', self)
         self.folderInterface = Widget('Folder Interface', self)
         self.settingInterface = Widget('Setting Interface', self)

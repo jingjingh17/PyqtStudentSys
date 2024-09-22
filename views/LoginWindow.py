@@ -26,10 +26,11 @@ class LoginWindow(Ui_Form, QWidget):
     def login(self):
         usename = self.lineEdit_3.text()
         password = self.lineEdit_4.text()
-        if Auth().check_user_login(usename,password):
+        state,userid,role = Auth().check_user_login(usename,password)
+        if state:
             print("登录成功","用户名",usename,"密码",password)
             self.close()
-            self.showMainWindow()
+            self.showMainWindow(userid,role)
         else:
             InfoBar.error(
                 title='用户名或密码错误',
@@ -43,9 +44,9 @@ class LoginWindow(Ui_Form, QWidget):
         self.close()
         self.showRegisterWindow()
 
-    def showMainWindow(self):
+    def showMainWindow(self,userid,role):
         from main_window import Window
-        mainWindow = Window()
+        mainWindow = Window(userid,role)
         mainWindow.show()
 
     def showRegisterWindow(self):
