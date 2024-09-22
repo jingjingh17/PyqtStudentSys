@@ -8,6 +8,7 @@ from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLab
 from views.UI_courseSelectInterface import Ui_courseSelectInterface
 from utils.myCourse import myCourse
 from utils.courseData import courseData
+from utils.course import course
 
 class courseSelectInterface(QWidget, Ui_courseSelectInterface):
     def __init__(self, parent=None):
@@ -43,6 +44,9 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         
         # 初始化开放课程列表
         self.initOpenList()
+
+        # 初始化未开放选课列表
+        self.initNoOpenList()
 
     def on_home_click(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -91,16 +95,69 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
 
     def initOpenList(self):
         self.openModel = QStandardItemModel()
-        self.openModel.setHorizontalHeaderLabels(["课程编号", "课程名称", "学院", "教师", "课程数量", 
-                                                "已选数量","开放", "结束选课", "学分"])
+        self.openModel.setHorizontalHeaderLabels(["课程ID","课程编号", "课程名称", "学院", "课程数量", 
+                                                "已选数量","开放", "学分","教师","教师ID"])
         self.tableView.setModel(self.openModel)
         # 表格不可编辑
         self.tableView.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         
-        openData = courseData().openCoursedata()
+        # 隐藏ID列
+        self.tableView.setColumnWidth(0,0)
+        self.tableView.setColumnWidth(9,0)
+
+        # 所有课程数据
+        self.courseData = course().inquireCourse()
+
+        # 开放选课数据
+        openData = []
+        for i in range(len(self.courseData)):
+            row_data = self.courseData[i]
+            if row_data[6] == 1:
+                openData.append(row_data)
+                
+        # 渲染开放课程列表
         for i in range(len(openData)):
             row_data = openData[i]
-            for j,key in enumerate(row_data):
-                value = row_data[key]
-                self.openModel.setItem(i, j, QStandardItem(str(value)))
+            for j in range(len(row_data)):
+                if j == 5 and row_data[j] == 1:
+                    self.openModel.setItem(i, j, QStandardItem("是"))
+                else:
+                    self.openModel.setItem(i, j, QStandardItem(str(row_data[j])))
+            else:
+                continue
+
+
+    def initNoOpenList(self):
+        self.noOpenModel = QStandardItemModel()
+        self.noOpenModel.setHorizontalHeaderLabels(["课程ID","课程编号", "课程名称", "学院", "课程数量", 
+                                                    "已选数量","开放", "学分","教师","教师ID"])
+        self.tableView_2.setModel(self.noOpenModel)
+        # 表格不可编辑
+        self.tableView_2.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        
+        # 隐藏ID列
+        self.tableView_2.setColumnWidth(0,0)
+        self.tableView_2.setColumnWidth(9,0)
+        
+        # 所有课程数据
+        self.courseData = course().inquireCourse()
+
+        # 开放选课数据
+        noOpenData = []
+        for i in range(len(self.courseData)):
+            row_data = self.courseData[i]
+            if row_data[6] == 0:
+                noOpenData.append(row_data)
+                
+        # 渲染开放课程列表
+        for i in range(len(noOpenData)):
+            row_data = noOpenData[i]
+            for j in range(len(row_data)):
+                if j == 5 and row_data[j] == 0:
+                    self.noOpenModel.setItem(i, j, QStandardItem("否"))
+                else:
+                    self.noOpenModel.setItem(i, j, QStandardItem(str(row_data[j])))
+            else:
+                continue
+
                 
