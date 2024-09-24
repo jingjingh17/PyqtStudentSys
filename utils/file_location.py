@@ -17,6 +17,9 @@ def get_project_root():
 def getSysIconPath():
     return os.path.join(get_project_root(), 'resources', 'images', 'system.png')
 
+def getUserIconPath():
+    return os.path.join(get_project_root(), 'resources', 'icons', 'avatar.svg')
+
 # 测试函数是否正确返回了根目录
 if __name__ == "__main__":
     print("项目根目录:", get_project_root())

@@ -1,7 +1,7 @@
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QColor,QPixmap
+from PyQt6.QtGui import QColor,QPixmap,QTextCharFormat
 from PyQt6.QtWidgets import QWidget, QGraphicsDropShadowEffect,QHBoxLayout,QWidgetItem,QSizePolicy
-from qfluentwidgets import (FluentIcon, setFont, InfoBarIcon,ScrollArea,ImageLabel,CardWidget,
+from qfluentwidgets import (FluentIcon, InfoBar,CardWidget,
                             CheckBox,LineEdit,ToolButton,BodyLabel)
 
 from views.UI_HomeInterface import Ui_HomeInterface
@@ -10,7 +10,7 @@ from utils.weatherToicon import weatherToicon
 from utils.file_location import getSysIconPath
 
 class HomeInterface(Ui_HomeInterface, QWidget):
-    def __init__(self, parent=None):
+    def __init__(self,username, parent=None):
         super().__init__(parent=parent)
         self.setupUi(self)
 
@@ -28,6 +28,8 @@ class HomeInterface(Ui_HomeInterface, QWidget):
         
         self.currentTime = Time().get_current_time()
         self.WelCardTimeLabel.setText(self.currentTime)
+        self.WelCardTextLabel.setText("欢迎回来，" + username)
+        self.WelCardTextLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.province = weatherToicon().province
         self.label.setText(self.province) 
@@ -74,12 +76,20 @@ class HomeInterface(Ui_HomeInterface, QWidget):
                     itemEditing = True
         
         if not itemEditing:
-            taskCard = newTaskCard()
+            taskCardNum = self.verticalLayout_12.count()
+            taskCard = newTaskCard(taskCardNum)
             taskCard.taskFinishButton.clicked.connect(self.TaskCardFinishButtonClicked)
             self.verticalLayout_12.insertWidget(0, taskCard)
         else:
-            print("Please finish the editing")
+            InfoBar.error(
+                title='错误',
+                content="请先输入当前任务",
+                isClosable=True,
+                duration=2000,
+                parent=self
+            )
         
+    
     # 保存任务
     def TaskCardFinishButtonClicked(self):
         textEdit = self.verticalLayout_12.itemAt(0).widget().findChild(LineEdit)
@@ -108,22 +118,33 @@ class HomeInterface(Ui_HomeInterface, QWidget):
                     itemsToRemove.append(item.widget())
 
         if len(itemsToRemove) == 0:
-            print("Please select the task to delete")       
+            InfoBar.error(
+                title='错误',
+                content="请选择要删除的任务",
+                isClosable=True,
+                duration=2000,
+                parent=self
+            )       
                 
         for item in itemsToRemove:
             self.verticalLayout_12.removeWidget(item)
             item.deleteLater()
 
 
+
+
 class newTaskCard(CardWidget):
     
-    def __init__(self, parent=None):
+    def __init__(self, index,parent=None):
         super().__init__(parent=parent)
         
+        self.index = index
         self.taskCheckBox = CheckBox(self)
         self.taskEdit = LineEdit(self)
         self.taskFinishButton = ToolButton(self)
         self.taskFinishButton.setIcon(FluentIcon.SAVE)
+
+        self.taskCheckBox.checkStateChanged.connect(self.finishTaskCheckBox)
         
         self.hBoxLayout = QHBoxLayout(self)
         
@@ -135,5 +156,6 @@ class newTaskCard(CardWidget):
         self.hBoxLayout.addWidget(self.taskFinishButton)
         self.hBoxLayout.setContentsMargins(36, 9, 36, 9)
 
-        
+    def finishTaskCheckBox(self):
+        print(f"finish task{self.index}")   
 

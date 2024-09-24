@@ -10,6 +10,7 @@ from qfluentwidgets import (NavigationItemPosition, MessageBox, setTheme, Theme,
 from qfluentwidgets import FluentIcon as FIF
 from views.HomeInterface import HomeInterface
 from views.courseSelectInterface import courseSelectInterface
+from views.PersonCenterInterface import PersonCenterInterface
 
 class Widget(QFrame):
 
@@ -26,54 +27,49 @@ class Widget(QFrame):
 
 class Window(FluentWindow):
 
-    def __init__(self,userid,role):
+    def __init__(self,userid,role,username):
         super().__init__()
 
         # create sub interface
-        self.homeInterface = HomeInterface(self)
-        self.musicInterface = courseSelectInterface(userid,role)
-        self.videoInterface = Widget('Video Interface', self)
-        self.folderInterface = Widget('Folder Interface', self)
-        self.settingInterface = Widget('Setting Interface', self)
-        self.albumInterface = Widget('Album Interface', self)
-        self.albumInterface1 = Widget('Album Interface 1', self)
-        self.albumInterface2 = Widget('Album Interface 2', self)
-        self.albumInterface1_1 = Widget('Album Interface 1-1', self)
+        self.homeInterface = HomeInterface(username)
+        self.courseInterface = courseSelectInterface(userid,role)
+        # self.videoInterface = Widget('Video Interface', self)
+        # self.folderInterface = Widget('Folder Interface', self)
+        self.settingInterface = PersonCenterInterface(username)
+        # self.albumInterface = Widget('Album Interface', self)
+        # self.albumInterface1 = Widget('Album Interface 1', self)
+        # self.albumInterface2 = Widget('Album Interface 2', self)
+        # self.albumInterface1_1 = Widget('Album Interface 1-1', self)
 
         self.initNavigation()
         self.initWindow()
 
     def initNavigation(self):
         self.addSubInterface(self.homeInterface, FIF.HOME, '主页')
-        self.addSubInterface(self.musicInterface, FIF.MUSIC, '课程')
-        self.addSubInterface(self.videoInterface, FIF.VIDEO, 'Video library')
+        self.addSubInterface(self.courseInterface, FIF.BOOK_SHELF, '课程')
+        # self.addSubInterface(self.videoInterface, FIF.VIDEO, 'Video library')
 
-        self.navigationInterface.addSeparator()
+        # self.navigationInterface.addSeparator()
 
-        self.addSubInterface(self.albumInterface, FIF.ALBUM, 'Albums', NavigationItemPosition.SCROLL)
-        self.addSubInterface(self.albumInterface1, FIF.ALBUM, 'Album 1', parent=self.albumInterface)
-        self.addSubInterface(self.albumInterface1_1, FIF.ALBUM, 'Album 1.1', parent=self.albumInterface1)
-        self.addSubInterface(self.albumInterface2, FIF.ALBUM, 'Album 2', parent=self.albumInterface)
-        self.addSubInterface(self.folderInterface, FIF.FOLDER, 'Folder library', NavigationItemPosition.SCROLL)
+        # self.addSubInterface(self.albumInterface, FIF.ALBUM, 'Albums', NavigationItemPosition.SCROLL)
+        # self.addSubInterface(self.albumInterface1, FIF.ALBUM, 'Album 1', parent=self.albumInterface)
+        # self.addSubInterface(self.albumInterface1_1, FIF.ALBUM, 'Album 1.1', parent=self.albumInterface1)
+        # self.addSubInterface(self.albumInterface2, FIF.ALBUM, 'Album 2', parent=self.albumInterface)
+        # self.addSubInterface(self.folderInterface, FIF.FOLDER, 'Folder library', NavigationItemPosition.SCROLL)
 
-        # add custom widget to bottom
-        self.navigationInterface.addWidget(
-            routeKey='avatar',
-            widget=NavigationAvatarWidget('zhiyiYo', 'resource/shoko.png'),
-            onClick=self.showMessageBox,
-            position=NavigationItemPosition.BOTTOM,
-        )
-
-        self.addSubInterface(self.settingInterface, FIF.SETTING, 'Settings', NavigationItemPosition.BOTTOM)
+        
+        
+        self.addSubInterface(self.settingInterface, FIF.PEOPLE, '个人中心', NavigationItemPosition.BOTTOM)
+        
 
         # add badge to navigation item
-        item = self.navigationInterface.widget(self.videoInterface.objectName())
-        InfoBadge.attension(
-            text=9,
-            parent=item.parent(),
-            target=item,
-            position=InfoBadgePosition.NAVIGATION_ITEM
-        )
+        # item = self.navigationInterface.widget(self.videoInterface.objectName())
+        # InfoBadge.attension(
+        #     text=9,
+        #     parent=item.parent(),
+        #     target=item,
+        #     position=InfoBadgePosition.NAVIGATION_ITEM
+        # )
 
         # NOTE: enable acrylic effect
         # self.navigationInterface.setAcrylicEnabled(True)
@@ -91,17 +87,17 @@ class Window(FluentWindow):
         # self.navigationInterface.setMinimumExpandWidth(900)
         # self.navigationInterface.expand(useAni=False)
 
-    def showMessageBox(self):
-        w = MessageBox(
-            '支持作者🥰',
-            '个人开发不易，如果这个项目帮助到了您，可以考虑请作者喝一瓶快乐水🥤。您的支持就是作者开发和维护项目的动力🚀',
-            self
-        )
-        w.yesButton.setText('来啦老弟')
-        w.cancelButton.setText('下次一定')
+    # def showMessageBox(self):
+    #     w = MessageBox(
+    #         '支持作者🥰',
+    #         '个人开发不易，如果这个项目帮助到了您，可以考虑请作者喝一瓶快乐水🥤。您的支持就是作者开发和维护项目的动力🚀',
+    #         self
+    #     )
+    #     w.yesButton.setText('来啦老弟')
+    #     w.cancelButton.setText('下次一定')
 
-        if w.exec():
-            QDesktopServices.openUrl(QUrl("https://afdian.net/a/zhiyiYo"))
+    #     if w.exec():
+    #         QDesktopServices.openUrl(QUrl("https://afdian.net/a/zhiyiYo"))
 
 
 if __name__ == '__main__':
