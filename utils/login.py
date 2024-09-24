@@ -19,7 +19,7 @@ class Auth():
             role = result[3]
             return True,userId,role
         else:
-            return False
+            return False,None,None
         
     def check_user_register(self, username,password):
         cursor = self.conn.execute("SELECT * FROM Users WHERE username=?", (username,))
