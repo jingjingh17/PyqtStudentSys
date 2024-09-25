@@ -5,6 +5,7 @@ from qfluentwidgets import (FluentIcon, InfoBar,CardWidget,
                             CheckBox,LineEdit,ToolButton,BodyLabel)
 
 from views.UI_HomeInterface import Ui_HomeInterface
+from views.infoDetailsInterface import infoDetailsInterface
 from utils.nowTime import Time
 from utils.weatherToicon import weatherToicon
 from utils.file_location import getSysIconPath
@@ -48,8 +49,13 @@ class HomeInterface(Ui_HomeInterface, QWidget):
             elif i == 4:
                 self.WeaCardIcon5.setPixmap(QPixmap(self.iconPath[i]).scaled(40, 40, Qt.AspectRatioMode.KeepAspectRatio))
                
+        # 新增任务按钮
         self.TaskCardAddtoolButton.clicked.connect(self.TaskCardAddtoolButtonClicked)
         self.TaskCardDeltoolButton.clicked.connect(self.TaskCardDeltoolButtonClicked)
+
+        # 详情点击跳转
+        self.label_18.mousePressEvent = self.openInfoDetailsInterface
+        self.label_21.mousePressEvent = self.openInfoDetailsInterface2
 
         # add shadow effect to card
         self.setShadowEffect(self.WeaCard)
@@ -64,6 +70,21 @@ class HomeInterface(Ui_HomeInterface, QWidget):
         shadowEffect.setBlurRadius(10)
         shadowEffect.setOffset(0, 0)
         card.setGraphicsEffect(shadowEffect)
+    
+    # 打开通知详情窗口
+    def openInfoDetailsInterface(self,event):
+        print("openInfoDetailsInterface")
+        self.detail_window = infoDetailsInterface()
+        self.detail_window.show()
+
+    # 打开通知详情窗口2--临时
+    def openInfoDetailsInterface2(self,event):
+        print("openInfoDetailsInterface2")
+        self.detail_window = infoDetailsInterface()
+        self.detail_window.plainTextEdit.setPlainText("尊敬的全体同学：\n\n为了保证期末考试的顺利进行，现将相关事项通知如下：\n\n考试时间：XX年XX月XX日至XX月XX日。\n\n考试科目：请各位同学提前查看考试安排，确认各科目的具体时间及地点。\n\n注意事项：\n请携带学生证及相关考试用品。\n考试期间保持安静，不得携带电子设备入场。\n\n如有疑问，请及时与老师联系。祝大家考试顺利！\n\n\n\n教务处")
+        self.detail_window.titleLabel.setText("考试通知")
+        self.detail_window.show()
+
     
     # 新增任务
     def TaskCardAddtoolButtonClicked(self):
