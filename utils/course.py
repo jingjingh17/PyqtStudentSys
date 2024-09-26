@@ -77,12 +77,34 @@ class course:
          pass
 
     
+    def myCourse(self,studentId):
+         studen_id = studentId
+         cursor = self.conn.execute(
+            """
+            SELECT 
+            Enrollments.student_id,
+            Courses.course_id,
+            Courses.course_num,
+            Courses.course_name,
+            Courses.course_college,
+            Courses.course_quality,
+            Courses.course_state,
+            Courses.credits,
+            Teachers.username AS teacher_name,
+            Teachers.teacherid
+            FROM Enrollments
+            INNER JOIN Courses ON Enrollments.course_id = Courses.course_id
+            INNER JOIN Teachers ON Courses.teacher_id = Teachers.teacherid
+            WHERE Enrollments.student_id = ?;
+           """,
+           (studen_id,)
+         )
+         result = cursor.fetchall()
+         return result
+    
 if __name__ == "__main__":
-    res = course().inquireCourse()
-    for i in range(len(res)):
-            row_data = res[i]
-            for j in range(len(row_data)):
-                 print(row_data[j], end=" ")
+    res = course().myCourse(42)
+    print(res)
     
 
     

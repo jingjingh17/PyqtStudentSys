@@ -39,9 +39,7 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         # 初始化搜索条件
         self.lineEdit.setPlaceholderText('输入课程名称')
         self.collegeLineEdit.setPlaceholderText('输入课程名称')
-        self.colleges = myCourse().getColleges(self.courseList)
-        self.openCourseBox.addItems(self.colleges)
-        self.comboBox.addItems(self.colleges)
+        
         
         # 初始化开放课程列表
         self.initOpenList()
@@ -56,22 +54,48 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         self.stackedWidget.setCurrentIndex(1)
 
     def initMyCourseList(self):
-        # 课程总数，已选学分，课程信息
-        self.courseNum,self.score,self.courseList = myCourse().getCourse()
-        self.totalScore = myCourse().totalScore
+        self.myCourseScore = 0
+        self.totalScore = 30
+        # 初始化表头
+        headers = ["学生ID","课程ID","课程编号", "课程名称", "学院", "学生数量", "课程状态", "学分","教师","教师ID"]
+        self.tableWidget.setHorizontalHeaderLabels(headers)
         
-        self.tableWidget.setRowCount(self.courseNum)
+        # 获取我的课程数据
+        self.courseList = course().myCourse(self.userid)
+        self.myCourseNum = len(self.courseList)
+
+        # 渲染我的课程列表
+        self.tableWidget.setRowCount(self.myCourseNum)
         for i in range(len(self.courseList)):
             row_data = self.courseList[i]
-            for j,key in enumerate(row_data):
-                value = row_data[key]
+            for j in range(len(row_data)):
+                value = row_data[j]
+                if j == 6:
+                    value = self.status_to_text(int(value))
+                if j == 7:
+                    self.myCourseScore += value
                 self.tableWidget.setItem(i, j, QTableWidgetItem(str(value)))
+        
+        # 隐藏ID列
+        self.tableWidget.setColumnHidden(0, True)
+        self.tableWidget.setColumnHidden(1, True)
+        self.tableWidget.setColumnHidden(9, True)
+
+        self.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+    
+    def status_to_text(self,status):
+        if status == 1:
+            return "选课中"
+        elif status == 0:
+            return "选课结束"
+        else:
+            return str(status)
     
     def initCourseBoard(self):
-        self.label.setText(str(self.courseNum))
-        self.label_4.setText(str(self.score))
+        self.label.setText(str(self.myCourseNum))
+        self.label_4.setText(str(self.myCourseScore))
         self.label_6.setText(str(self.totalScore))
-        self.remainScore = self.totalScore - self.score
+        self.remainScore = self.totalScore - self.myCourseScore
         self.label_8.setText(
             f'学分已满，超出 {abs(self.remainScore)} 分' if self.remainScore < 0 else
             '学分已满' if self.remainScore == 0 else
@@ -85,7 +109,7 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
         if self.remainScore <=0 :
             self.progressBar.setValue(self.totalScore)
         else:
-            self.progressBar.setValue(self.score)
+            self.progressBar.setValue(int(self.myCourseScore))
 
     def on_listWidget_itemClicked(self, item):
         text = item.text()

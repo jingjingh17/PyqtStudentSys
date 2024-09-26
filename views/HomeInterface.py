@@ -32,6 +32,7 @@ class HomeInterface(Ui_HomeInterface, QWidget):
         self.WelCardTextLabel.setText("欢迎回来，" + username)
         self.WelCardTextLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
+        # 天气组件渲染
         self.province = weatherToicon().province
         self.label.setText(self.province) 
         
