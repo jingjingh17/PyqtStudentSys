@@ -56,6 +56,13 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
     def initMyCourseList(self):
         self.myCourseScore = 0
         self.totalScore = 30
+
+        # 清空现有的表格内容
+        self.tableWidget.clearContents()
+        self.tableWidget.setRowCount(0)
+
+        print("我的课程列表初始化中...")
+        
         # 初始化表头
         headers = ["学生ID","课程ID","课程编号", "课程名称", "学院", "学生数量", "课程状态", "学分","教师","教师ID"]
         self.tableWidget.setHorizontalHeaderLabels(headers)
@@ -92,6 +99,14 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
             return str(status)
     
     def initCourseBoard(self):
+
+        # 清空现有的显示内容
+        self.label.setText("")
+        self.label_4.setText("")
+        self.label_6.setText("")
+        self.label_8.setText("")
+        print("课程看板初始化中...")
+        
         self.label.setText(str(self.myCourseNum))
         self.label_4.setText(str(self.myCourseScore))
         self.label_6.setText(str(self.totalScore))
@@ -208,6 +223,8 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
             """
             if self.role == "student":
                 if self.course.seleCourse(studentId,courseId) == True:
+                    self.initMyCourseList()
+                    self.initCourseBoard()
                     InfoBar.success(
                         title='成功',
                         content="选课成功",
