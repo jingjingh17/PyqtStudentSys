@@ -225,6 +225,7 @@ class courseSelectInterface(QWidget, Ui_courseSelectInterface):
                 if self.course.seleCourse(studentId,courseId) == True:
                     self.initMyCourseList()
                     self.initCourseBoard()
+                    self.initScoreRing()
                     InfoBar.success(
                         title='成功',
                         content="选课成功",
