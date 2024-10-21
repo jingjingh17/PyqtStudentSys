@@ -1,0 +1,7 @@
+darkdetect==0.8.0
+PyQt6==6.7.1
+PyQt6-Fluent-Widgets==1.7.0
+PyQt6-Frameless-Window==0.4.3
+PyQt6-Qt6==6.7.3
+PyQt6_sip==13.8.0
+pywin32==308
